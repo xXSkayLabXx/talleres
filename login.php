@@ -5,7 +5,7 @@ session_start();
 
 //en caso de que ya este logueado lo redirecciona a la pagina principal
 if (isset($_SESSION['user_id'])) {
-    header('Location: cotecnova/index.html');
+    header('Location: cotecnova/index.php');
 }
 
 
@@ -24,7 +24,7 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     if (is_countable($results) > 0 && password_verify($_POST['password'],$results['password'])) {
         //si es correcto lo alamcena en una vairbale de sesion
         $_SESSION['user_id'] = $results['id'];
-        header('Location: /login/cotecnova/index.html');
+        header('Location: /login/cotecnova/index.php');
     } else {
         $message = 'Lo siento, las credenciales no coinciden';
     }
