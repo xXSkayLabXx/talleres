@@ -15,13 +15,14 @@
 require '../partials/header.php';
 
 ?>
+
 <body>
 
 
     <h1>Valor de la Conexion con la API</h1>
-    
-        <iframe src="api.php" id="reloadIframe" style="border: none; width: auto; height: 800px;" ></iframe>
-    
+
+    <iframe src="api.php" id="reloadIframe" style="border: none; width: auto; height: 800px;"></iframe>
+
 
     <script>
         //proceso para que el iframe se recargue cada 5 segundos
@@ -31,4 +32,5 @@ require '../partials/header.php';
         }, 5000)
     </script>
 </body>
+
 </html>

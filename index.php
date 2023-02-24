@@ -3,15 +3,15 @@ session_start();
 
 require 'db.php';
 
-if (isset($_SESSION['user_id'])){
+if (isset($_SESSION['user_id'])) {
     $records = $conexion->prepare('SELECT id, email, password FROM users WHERE id =:id');
-    $records->bindParam(':id',$_SESSION['user_id']);
+    $records->bindParam(':id', $_SESSION['user_id']);
     $records->execute();
     $results = $records->fetch(PDO::FETCH_ASSOC);
 
     $user = null;
 
-    if(count($results)> 0 ){
+    if (count($results) > 0) {
         $user = $results;
     }
 }
@@ -39,16 +39,37 @@ if (isset($_SESSION['user_id'])){
 
 <body>
 
-<?php require 'partials/header.php'?>
-<?php if(!empty($user)): ?>
-    <br>Bienvenido. <?=$user['email']?>
-    <br>Ingresaste exitosamente
-    <a href="logout.php">Logout</a>
-    <?php else: ?>
-    <h1>Porfavor accede o resgitarte</h1>
-    <a href="login.php">Acceder</a> o
-    <a href="registro.php">Registrarse</a>
-    <?php endif;?>
+    <?php require 'partials/header.php' ?>
+    <?php if (!empty($user)) : ?>
+        <br>Bienvenido. <?= $user['email'] ?>
+        <br>Ingresaste exitosamente
+        <div class="buttons-container">
+            <a href="cotecnova/index.php">
+                <button class="button-arounder">Api</button>
+            </a>
+        </div>
+
+        <a href="logout.php">Logout</a>
+    <?php else : ?>
+        <h1>Porfavor accede o registrate</h1>
+
+        <div class="buttons-container">
+            <a href="login.php"><button class="button-arounder">Acceder</button></a>
+        </div>
+        o
+
+        <div class="btn" >
+            <a href="registro.php">
+                <button class="btn-s">
+                    Registrarse
+                    <span class="first"></span>
+                    <span class="second"></span>
+                    <span class="third"></span>
+                    <span class="fourth"></span>
+                </button>
+            </a>
+        </div>
+    <?php endif; ?>
 </body>
 
 </html>

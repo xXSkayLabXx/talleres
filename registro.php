@@ -41,7 +41,14 @@ if (!empty($_POST['email']) && !empty($_POST['password'])) {
     <?php endif; ?>
 
     <h1>Registrate</h1>
-    <span> o <a href="login.php">Inicia Sesion</a></span>
+    <span> o 
+    <div class="buttons-container">
+            
+                <a href="login.php"><button class="button-arounder">Inicia Sesion</button></a>
+        </div>
+    
+    
+    </span>
     <form action="registro.php" method="post">
         <input type="text" name="email" placeholder="Ingrese su correo">
         <input type="password" name="password" placeholder="Ingrese su contraseña">
