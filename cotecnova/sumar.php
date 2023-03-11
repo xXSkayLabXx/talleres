@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL & ~E_DEPRECATED & ~E_STRICT & ~E_WARNING & ~E_NOTICE);
 require './resul_suma1.php';
 require './resul_sum2.php';
 
@@ -16,20 +17,24 @@ require './resul_sum2.php';
     <main>
         <form id="formulario" name="sumar" method="POST">
             <label for="">Numero uno:
-                <input type="text" name="n1">
+                <input type="text" id="n1" name="n1">
             </label> <br>
             <label for="">Numero dos:
-                <input type="text" name="n2">
+                <input type="text" id="n2" name="n2">
             </label>
             <br>
             <input id="btn-sumar" type="submit" name="sumar" value="Sumar">
         </form>
 
-        <span>El resultado de la suma es: </span> <br>
+        <span>El resultado de la suma es: <?= $res?> </span> <br>
         <a href="../login.php">
                 <button class="button-arounder">atras</button>
         </a>
     </main>
+
+
+
+
 
     <script >
         let formulario = document.getElementById('formulario');
@@ -42,7 +47,24 @@ require './resul_sum2.php';
                 body:datos,
             }
             fetch('./resul_suma1.php',peticion)
-            .then(respuesta => respuesta.json)
+            .then(respuesta => respuesta.json())
+            .then(respuesta =>{
+
+            }).catch(error =>console.log('error', error) ) 
+        })
+    </script>
+        <script >
+        let formulario2 = document.getElementById('formulario');
+        formulario.addEventListener('submit', e=>{
+            e.preventDefault();
+
+            let datos = new FormData(formulario2);
+            peticion = {
+                method:'POST',
+                body:datos,
+            }
+            fetch('./resul_sum2.php',peticion)
+            .then(respuesta => respuesta.json())
             .then(respuesta =>{
 
             }).catch(error =>console.log('error', error) ) 
