@@ -46,8 +46,12 @@ if (isset($_SESSION['user_id'])) {
         <div class="buttons-container">
             <a href="cotecnova/index.php">
                 <button class="button-arounder">Api</button>
-            </a>
+            </a> 
+
         </div>
+            <a href="cotecnova/sumar.php">
+                <button class="button-arounder">Sumar</button>
+            </a><br>
 
         <a href="logout.php">Logout</a>
     <?php else : ?>
@@ -56,18 +60,22 @@ if (isset($_SESSION['user_id'])) {
         <div class="buttons-container">
             <a href="login.php"><button class="button-arounder">Acceder</button></a>
         </div>
+
         o
+        <br>
 
         <div class="btn" >
-            <a href="registro.php">
+            
+            <a class="boton" href="registro.php">
                 <button class="btn-s">
-                    Registrarse
+                    Registrate
                     <span class="first"></span>
                     <span class="second"></span>
                     <span class="third"></span>
                     <span class="fourth"></span>
                 </button>
             </a>
+        
         </div>
     <?php endif; ?>
 </body>

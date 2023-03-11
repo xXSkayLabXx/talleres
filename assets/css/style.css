@@ -1,3 +1,13 @@
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  
+}
+html{
+  font-size: 62.5%;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -25,7 +35,9 @@ body {
   overflow: hidden;
   border-radius: 100px;
 }
-
+a:link, a:visited{
+  text-decoration: none;
+}
 .btn-s:hover {
   color: #000;
 }
@@ -97,7 +109,6 @@ span {
 
 
 
-
 /*BTN AZUL*/
 .buttons-container {
   width: 100%;
@@ -115,7 +126,7 @@ span {
   color: hsl(190deg, 10%, 95%);
   
   box-shadow: 0 0px 0px hsla(190deg, 15%, 5%, .2);
-  transfrom: translateY(0);
+  transform: translateY(0);
   border-top-left-radius: 0px;
   border-top-right-radius: 0px;
   border-bottom-left-radius: 0px;
